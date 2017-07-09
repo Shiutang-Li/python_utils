@@ -14,7 +14,7 @@ def repeated_columns_detector(df, show_result = True):
     
     # Input:
     # df:                target dataframe
-    # show_result:       
+    # show_result:       print output if set to True
     
     # Output:            list of lists where each small list contains repeated coulmns 
     #                    Won't include any column which doesn't repeat with other columns
