@@ -23,7 +23,7 @@ def add_features(df, feature, pred_feature, mean = True, count = True, rank = Tr
     
     # Example:
     # df     =  pd.DataFrame({'a':[1,1,2,2,3,3], 'b': [4,5,6,7,8,9]})
-    # new_df =  add_feature(df, 'a', 'b')    
+    # new_df =  add_features(df, 'a', 'b')    
     
     groups = df[[feature, pred_feature]].groupby(feature)
     table  = groups.aggregate(np.mean)[pred_feature]
