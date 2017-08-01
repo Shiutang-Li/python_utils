@@ -1,5 +1,5 @@
-# pandas_utils
-a collection of pandas tools coded by myself 
+# python_utils
+a collection of python tools coded by myself 
 
 ### Installation
-```git clone https://github.com/Shiutang-Li/pandas_utils.git```
+```git clone https://github.com/Shiutang-Li/python_utils.git```
