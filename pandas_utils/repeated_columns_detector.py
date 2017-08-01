@@ -6,9 +6,7 @@
 # last update     : 07/09/2017
 # version         : 0.1
 # python_version  : 3.5.2
-
-import pandas as pd
-import numpy as np
+# depedencies     : pandas, numpy
 
 def repeated_columns_detector(df, show_result = True):
     
