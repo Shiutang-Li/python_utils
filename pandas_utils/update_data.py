@@ -6,7 +6,10 @@
 # last update     : 06/13/2017
 # version         : 0.1
 # python_version  : 3.5.2
-# depedencies     : pandas, numpy, copy.deepcopy
+
+import pandas as pd
+import numpy as np
+from copy import deepcopy 
 
 def update_data(df1, df2, key_column, sort = True):
     
