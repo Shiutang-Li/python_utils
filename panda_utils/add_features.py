@@ -9,7 +9,6 @@
 
 import pandas as pd
 import numpy as np
-
     
 def add_features(df, feature, pred_feature, mean = True, count = True, rank = True):
     
