@@ -6,7 +6,9 @@
 # last update     : 07/08/2017
 # version         : 0.1
 # python_version  : 3.5.2
-# depedencies     : pandas, numpy
+
+import pandas as pd
+import numpy as np
     
 def missing_values_count(df):
     
