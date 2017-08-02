@@ -12,6 +12,6 @@ git clone https://github.com/Shiutang-Li/python_utils.git
 ```
 cd FILE_PATH_OF_THIS_PACKAGE 
 git add FILE_NAME
-git commit -m "DESCRIPTION OF NEWLY ADDED FILE OR REVISIONS"
+git commit -m "DESCRIPTION_OF_NEWLY_ADDED_FILE_OR_REVISIONS"
 git push origin master
 ```
