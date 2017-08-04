@@ -20,3 +20,7 @@ git push origin master
 ```
 
 And then send pull requests.
+
+### Tutorial / API
+
+api is not ready yet. To see how to use the funcitons, see pandas_utils_demo.ipynb.
