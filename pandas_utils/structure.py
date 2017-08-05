@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # coding=utf8
-# description     : count number of missing values  
+# description     : Showing the details of each column in a dataframe  
 # author          : Shiu-Tang Li
 # last update     : 08/04/2017
 # version         : 0.2
