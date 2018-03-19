@@ -2,7 +2,7 @@
 A collection of python tools. My current goal is to build extension utils for  
 
 1. pandas  
-2. graphic packages like matplotlib / seaborn
+2. visualization packages like matplotlib / seaborn
 3. text preprocessing  
 4. images  
 5. time series  
