@@ -10,7 +10,7 @@
 import pandas as pd
 import numpy as np
 
-def repeated_columns_detector(df, show_result = True):
+def repeated_columns(df, show_result = True):
     
     # Input:
     # df:                target dataframe
