@@ -15,7 +15,7 @@ def division(a, b, precision):
     else:
         return round((a*1.0) / b,  precision)
     
-def target_ratio_by_gps(df, target_column, target_value, gp_column, mode, value_list, precision):
+def target_ratio_by_gps(df, target_column, target_value, gp_column, value_list, mode, precision):
     
     # Input:
     # df:                target dataframe
