@@ -37,7 +37,7 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     elif aggr_func == 'sum':
         table  = groups.aggregate(np.sum)[aggr_feature]  
     else:
-        return 'Wrong aggr function'
+        return 'aggr function not available'
         
         
     table  = pd.DataFrame(table)
