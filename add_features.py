@@ -10,39 +10,43 @@
 import pandas as pd
 import numpy as np
     
-def add_features(df, feature, pred_feature, mean = True, count = True, rank = True):
+def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     
     # Input:
     # df:                target dataframe
-    # feature:           target column for group operations
-    # pred_feature:      target numeric column
-    # mean, count, rank: additional features to be added  
+    # gp_feature:        group by this feature
+    # aggr_feature:      another feature for aggregation
+    # aggr_func:         aggregation function: 'count', 'mean', 'max', 'min', 'sum'
+    # join:              True:   join the 'aggregation table' to original table
+    #                    False:  return the 'aggregation table' only
     
     # Output:            new dataframe
     
     # Example:
     # df     =  pd.DataFrame({'a':[1,1,2,2,3,3], 'b': [4,5,6,7,8,9]})
-    # new_df =  add_features(df, 'a', 'b')    
+    # new_df =  gpby(df, 'a', 'b')  
     
-    groups = df[[feature, pred_feature]].groupby(feature)
-    table  = groups.aggregate(np.mean)[pred_feature]
-    table  = pd.DataFrame(table)
-    table[feature] = table.index
-    table  = pd.DataFrame({feature:table[feature].values,
-                           'mean_'+feature: table[pred_feature].values})
-
-    table2  = groups.aggregate('count')[pred_feature]
-    table2  = pd.DataFrame(table2)
-    table2[feature] = table2.index
-    table2  = pd.DataFrame({feature:      table2[feature].values,
-                            'count_'+feature: table2[pred_feature].values})
-    table = pd.merge(table, table2, on=feature)
-    if rank == True:
-        table[('rank_'+feature)] = table['mean_'+feature].rank(ascending=False).astype(int)
-    if mean == False:
-        del table['mean_'+feature]
-    if count == False:
-        del table['count_'+feature]
+    groups = df[[gp_feature, aggr_feature]].groupby(gp_feature)
+    if aggr_func == 'mean':
+        table  = groups.aggregate(np.mean)[aggr_feature]
+    elif aggr_func == 'count':
+        table  = groups.aggregate('count')[aggr_feature]
+    elif aggr_func == 'max':
+        table  = groups.aggregate(np.max)[aggr_feature]        
+    elif aggr_func == 'min':
+        table  = groups.aggregate(np.min)[aggr_feature]          
+    elif aggr_func == 'sum':
+        table  = groups.aggregate(np.sum)[aggr_feature]  
+    else:
+        return 'Wrong aggr function'
         
-    df = df.join(table.set_index(feature), on=feature)
-    return df
+        
+    table  = pd.DataFrame(table)
+    table[gp_feature] = table.index
+    table  = pd.DataFrame({gp_feature:table[gp_feature].values,
+                           aggr_func +'_of_'+ aggr_feature +'_gp_by_'+ gp_feature: table[aggr_feature].values})
+        
+    if join == True:
+        return df.join(table.set_index(gp_feature), on=gp_feature)
+    else:
+        return table
