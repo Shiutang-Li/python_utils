@@ -1,5 +1,5 @@
 # python_utils
-A collection of python tools. My current goal is to build extension utils for  
+A collection of python tools. The goal is to build extension utils for  
 
 1. pandas  
 2. visualization packages like matplotlib / seaborn
