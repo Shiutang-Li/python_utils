@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
 # coding=utf8
-# description     : Add mean, count, rank for a feature
+# description     : Customized group by function
 # author          : Shiu-Tang Li
-# last update     : 07/08/2017
-# version         : 0.1
+# last update     : 03/19/2018
 # python_version  : 3.5.2
 
 import pandas as pd
