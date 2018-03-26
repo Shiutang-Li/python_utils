@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # coding=utf8
-# description     : Customized group by function
+# description     : Custom group-by function
 # author          : Shiu-Tang Li
 # last update     : 03/26/2018
 # python_version  : 3.5.2
