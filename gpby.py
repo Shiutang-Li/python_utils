@@ -23,7 +23,7 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     
     # Example:
     # df     =  pd.DataFrame({'a':[1,1,2,2,3,3], 'b': [4,5,6,7,8,9]})
-    # new_df =  gpby(df, 'a', 'b')  
+    # new_df =  gpby(df, 'a', 'b', 'mean')  
     
     groups = df[[gp_feature, aggr_feature]].groupby(gp_feature)
     if aggr_func == 'mean':
