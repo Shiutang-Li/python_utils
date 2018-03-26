@@ -36,7 +36,7 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
         table  = groups.aggregate(np.min)[aggr_feature]          
     elif aggr_func == 'sum':
         table  = groups.aggregate(np.sum)[aggr_feature]  
-    elif aggr_func == 'sum':
+    elif aggr_func == 'list':
         table  = groups.aggregate('list')[aggr_feature]   
     else:
         return 'aggr function not available'
