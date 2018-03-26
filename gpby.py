@@ -15,7 +15,7 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     # df:                target dataframe
     # gp_feature:        group by this feature
     # aggr_feature:      another feature for aggregation
-    # aggr_func:         aggregation function: 'count', 'mean', 'max', 'min', 'sum'
+    # aggr_func:         aggregation function: 'count', 'mean', 'max', 'min', 'sum', 'list'
     # join:              True:   join the 'aggregation table' to original table
     #                    False:  return the 'aggregation table' only
     
@@ -36,6 +36,8 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
         table  = groups.aggregate(np.min)[aggr_feature]          
     elif aggr_func == 'sum':
         table  = groups.aggregate(np.sum)[aggr_feature]  
+    elif aggr_func == 'sum':
+        table  = groups.aggregate('list')[aggr_feature]   
     else:
         return 'aggr function not available'
         
