@@ -1,6 +1,6 @@
 #!/usr/bin/python
+# -*- coding:utf-8 -*-
 
-# coding=utf8
 # description     : calculate terget column ratio
 # author          : Shiu-Tang Li
 # last update     : 03/19/2018
