@@ -1,10 +1,9 @@
 #!/usr/bin/python
+# -*- coding:utf-8 -*-
 
-# coding=utf8
 # description     : Output a list of lists where each small list contains coulmns of the same value 
 # author          : Shiu-Tang Li
 # last update     : 07/09/2017
-# version         : 0.1
 # python_version  : 3.5.2
 
 import pandas as pd
