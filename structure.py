@@ -1,10 +1,9 @@
 #!/usr/bin/python
+# -*- coding:utf-8 -*-
 
-# coding=utf8
 # description     : Showing the details of each column in a dataframe  
 # author          : Shiu-Tang Li
 # last update     : 08/04/2017
-# version         : 0.2
 # python_version  : 3.5.2
 
 import pandas as pd
