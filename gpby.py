@@ -29,6 +29,8 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
         table  = df[[gp_feature, aggr_feature]].groupby(gp_feature).aggregate(np.mean)[aggr_feature]
     elif aggr_func == 'count':
         table  = df[[gp_feature, aggr_feature]].groupby(gp_feature).aggregate('count')[aggr_feature]
+    elif aggr_func == 'unique_count':
+        table  = df[[gp_feature, aggr_feature]].drop_duplicates().groupby(gp_feature).aggregate('count')[aggr_feature]
     elif aggr_func == 'max':
         table  = df[[gp_feature, aggr_feature]].groupby(gp_feature).aggregate(np.max)[aggr_feature]        
     elif aggr_func == 'min':
@@ -38,8 +40,7 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     elif aggr_func == 'list':
         table  = df[[gp_feature, aggr_feature]].drop_duplicates().groupby(gp_feature)[aggr_feature].apply(list) 
     else:
-        return 'aggr function not available'
-        
+        return 'aggr function not available'        
         
     table  = pd.DataFrame(table)
     table[gp_feature] = table.index
