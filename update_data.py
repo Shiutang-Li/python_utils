@@ -1,10 +1,9 @@
 #!/usr/bin/python
+# -*- coding:utf-8 -*-
 
-# coding=utf8
 # description     : Update dataframe values using another dataframe 
 # author          : Shiu-Tang Li
 # last update     : 06/13/2017
-# version         : 0.1
 # python_version  : 3.5.2
 
 import pandas as pd
