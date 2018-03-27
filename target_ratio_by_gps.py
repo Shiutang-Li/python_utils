@@ -39,9 +39,9 @@ def target_ratio_by_gps(df, target_column, target_value, gp_column, value_list, 
             cnt_taget_value = df[(df[target_column] == target_value) & (df[gp_column] == value_list[i])].shape[0]
             cnt = df[df[gp_column] == value_list[i]].shape[0]
 
-            list_target_value_count.append(cnt_taget_value);
-            list_count.append(cnt);
-            list_target_value_ratio.append(division(cnt_taget_value, cnt, precision));
+            list_target_value_count.append(cnt_taget_value)
+            list_count.append(cnt)
+            list_target_value_ratio.append(division(cnt_taget_value, cnt, precision))
 
         return pd.DataFrame({gp_column : list_gps,
                             'target_count': list_target_value_count,
@@ -50,16 +50,16 @@ def target_ratio_by_gps(df, target_column, target_value, gp_column, value_list, 
                             })[[gp_column,'target_count','count','ratio']]
     elif mode == 2:
         for i in range(0, len(value_list)-1):
-            list_gps.append(str(value_list[i])+' ≤ x < '+ str(value_list[i+1]));
+            list_gps.append(str(value_list[i])+' ≤ x < '+ str(value_list[i+1]))
             cnt_taget_value = df[(df[target_column] == target_value)
                                  & (df[gp_column] >= value_list[i])
-                                 & (df[gp_column] < value_list[i+1])].shape[0];
+                                 & (df[gp_column] < value_list[i+1])].shape[0]
             cnt = df[(df[gp_column] >= value_list[i])
                      & (df[gp_column] < value_list[i+1])].shape[0]
     
-            list_target_value_count.append(cnt_taget_value);
+            list_target_value_count.append(cnt_taget_value)
             list_count.append(cnt);
-            list_target_value_ratio.append(division(cnt_taget_value, cnt, precision));
+            list_target_value_ratio.append(division(cnt_taget_value, cnt, precision))
         
         return pd.DataFrame({gp_column + ': x': list_gps,
                              'target_count': list_target_value_count,
