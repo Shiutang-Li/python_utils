@@ -7,11 +7,10 @@ A collection of python tools. The goal is to build extension utils for
 4. images  
 5. time series  
 
-### Installation with git (commands w/ command line)
+### Installation with git
 
 ```
-cd WHERE_YOU_WANNA_PUT_THIS_PACKAGE_IN 
-git clone https://github.com/Shiutang-Li/python_utils.git
+$ git clone https://github.com/Shiutang-Li/python_utils.git
 ```
 
 ### Tutorial / API
