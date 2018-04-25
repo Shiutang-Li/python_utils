@@ -1,11 +1,9 @@
 # python_utils
-A collection of python tools. The goal is to build extension utils for  
+A collection of python tools for
 
 1. pandas  
-2. visualization packages like matplotlib / seaborn
+2. matplotlib / seaborn
 3. text preprocessing  
-4. images  
-5. time series  
 
 ### Installation with git
 
