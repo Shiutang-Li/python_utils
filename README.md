@@ -11,6 +11,5 @@ A collection of python tools for
 $ git clone https://github.com/Shiutang-Li/python_utils.git
 ```
 
-### Tutorial / API
+### API
 
-api is not ready yet. To see how to use the funcitons, see demo files.
