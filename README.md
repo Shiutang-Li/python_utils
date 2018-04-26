@@ -13,4 +13,4 @@ $ git clone https://github.com/Shiutang-Li/python_utils.git
 
 ### API
 
-API for pandas related utils: ([link](https://github.com/Shiutang-Li/python_utils/doc/instuction1.md))
+API for pandas related utils: ([link](https://github.com/Shiutang-Li/python_utils/blob/master/doc/instuction1.md))
