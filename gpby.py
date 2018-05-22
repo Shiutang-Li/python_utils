@@ -20,7 +20,7 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     # join:              True:   join the 'aggregation table' to original table
     #                    False:  return the 'aggregation table' only
     
-    # Output:            new dataframe
+    # Output:            resulting dataframe
     
     # Example:
     # df     =  pd.DataFrame({'a':[1,1,2,2,3,3], 'b': [4,5,6,7,8,9]})
@@ -76,13 +76,14 @@ def gpby_range(df, gp_feature, aggr_feature, aggr_func, value_list):
     # gp_feature:        group by this feature
     # aggr_feature:      another feature for aggregation
     # aggr_func:         aggregation function: 'unique_count', 'count', 'mean', 'max', 'min', 'sum', 'list'
-    # value_list:        group by range is based on the value list. Needs to be in ascending order.
+    # value_list:        the range of each group is based on value_list. Will be sorted in ascending order.
     
-    # Output:            new dataframe
+    # Output:            resulting dataframe
     
+    value_list.sort()
     df2 = deepcopy(df)
     df2['group_ID'] = df2.apply(lambda x: bisect_right(value_list, x[gp_feature]), axis = 1)
     table = gpby(df2, 'group_ID', aggr_feature, aggr_func, join = False).sort_values(by = 'group_ID')
-    table[gp_feature + ': x'] = table.apply(lambda x: position_to_range(x['group_ID'], value_list), axis = 1)
-    return table[[gp_feature + ': x', aggr_func +': '+ aggr_feature]]
+    table[gp_feature + ': x'] = table.apply(lambda x: position_to_range(int(x['group_ID']), value_list), axis = 1)
     
+    return table[[gp_feature + ': x', aggr_func +': '+ aggr_feature]]
