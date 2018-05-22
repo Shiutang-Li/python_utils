@@ -7,5 +7,6 @@ Output: pandas dataframe containing detailed info of each column of the input da
 Example:  
 
 df =   
-![](imgs/structure-1.png) 
+![](imgs/structure-1.png)   
 
+![](imgs/structure-2.png) 
