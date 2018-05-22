@@ -2,4 +2,4 @@
 
 1. structure: 
 
-[link](https://github.com/Shiutang-Li/python_utils/blob/master/doc/strucutre.md)
+  [link](https://github.com/Shiutang-Li/python_utils/blob/master/doc/structure.md)
