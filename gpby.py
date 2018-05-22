@@ -9,6 +9,7 @@
 import pandas as pd
 import numpy as np
 from bisect import bisect_right
+from copy import deepcopy
     
 def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     
