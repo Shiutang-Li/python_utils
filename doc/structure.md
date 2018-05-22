@@ -2,5 +2,5 @@
 structure(df, with_stat = False)
 ```
 
-|![](imgs/structure-1.jpg) | ![]()| 
-|:---:|:---:|
+![alt text](imgs/structure-1.png) 
+
