@@ -13,7 +13,7 @@ $ git clone https://github.com/Shiutang-Li/python_utils.git
 
 ### API
 
-API for pandas related utils: [link](https://github.com/Shiutang-Li/python_utils/blob/master/doc/instruction1.md)
+API for pandas related utils: [link](https://github.com/Shiutang-Li/python_utils/blob/master/doc/api_index.md)
 
 ### Usage
 
