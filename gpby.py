@@ -8,6 +8,7 @@
 
 import pandas as pd
 import numpy as np
+from bisect import bisect_right
     
 def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     
@@ -47,10 +48,10 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     
     if aggr_func != 'list':
         table  = pd.DataFrame({gp_feature:table[gp_feature].values,
-                               aggr_func +'_of_'+ aggr_feature: table[aggr_feature].values})
+                               aggr_func +': '+ aggr_feature: table[aggr_feature].values})
     else:
         table  = pd.DataFrame({gp_feature:table[gp_feature].values,
-                               aggr_func +'_of_'+ aggr_feature: 
+                               aggr_func +': '+ aggr_feature: 
                                [', '.join(str(e) for e in item) for item in table[aggr_feature].values]})
         
     if join == True:
@@ -58,13 +59,15 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     else:
         return table
 
+    
+def position_to_range(i, value_list):
+    if i == 0:
+        return 'x < ' + str(value_list[i])
+    elif i > 0 and i < len(value_list):
+        return str(value_list[i-1]) + ' ≤ x < ' + str(value_list[i])
+    else:
+        return 'others'
 
-def classify(x, value_list):
-    
-    for i in range(len(value_list)):
-        if value_list[i] <= x < value_list[i+1]:
-            return str(value_list[i])+' ≤ x < '+ str(value_list[i+1])
-    
     
 def gpby_range(df, gp_feature, aggr_feature, aggr_func, value_list):
     
@@ -77,6 +80,9 @@ def gpby_range(df, gp_feature, aggr_feature, aggr_func, value_list):
     
     # Output:            new dataframe
     
-    df[gp_feature + ': x'] = df.apply(lambda x: classify(x[gp_feature], value_list), axis = 1)
-    return gpby(df, gp_feature + ': x', aggr_feature, aggr_func, join = False)
+    df2 = deepcopy(df)
+    df2['group_ID'] = df2.apply(lambda x: bisect_right(value_list, x[gp_feature]), axis = 1)
+    table = gpby(df2, 'group_ID', aggr_feature, aggr_func, join = False).sort_values(by = 'group_ID')
+    table[gp_feature + ': x'] = table.apply(lambda x: position_to_range(x['group_ID'], value_list), axis = 1)
+    return table[[gp_feature + ': x', aggr_func +': '+ aggr_feature]]
     
