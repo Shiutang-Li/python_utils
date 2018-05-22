@@ -2,7 +2,7 @@
 structure(df, with_stat = False)
 ```
 
-Input:  pandas dataframe  
+Input:  df: pandas dataframe  
 Output: pandas dataframe containing detailed info of each column of the input dataframe  
 
 Example:  
