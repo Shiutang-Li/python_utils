@@ -3,7 +3,7 @@
 
 # description     : Custom group-by function
 # author          : Shiu-Tang Li
-# last update     : 03/26/2018
+# last update     : 05/22/2018
 # python_version  : 3.5.2
 
 import pandas as pd
