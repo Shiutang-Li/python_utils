@@ -1,6 +1,11 @@
 ```python
 structure(df, with_stat = False)
 ```
+Input:  pandas dataframe  
+Output: pandas dataframe containing detailed info of each column of the input dataframe  
 
-![alt text](imgs/structure-1.png) 
+Example:  
+
+df =   
+![](imgs/structure-1.png) 
 
