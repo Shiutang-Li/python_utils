@@ -11,4 +11,4 @@ df =
 
 ![](imgs/structure-2.png) 
 
-![](imgs/structure-3.png=300x) 
+<img src="imgs/structure-3.png" width="140%">
