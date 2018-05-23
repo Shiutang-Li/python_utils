@@ -9,18 +9,14 @@
 import pandas as pd
 import numpy as np
 
-def repeated_columns(df, show_result = True):
+def duplicate_columns(df):
     
     # Input:
     # df:                target dataframe
     # show_result:       print output if set to True
     
-    # Output:            list of lists where each small list contains repeated coulmns 
-    #                    (Won't include any column which doesn't repeat with other columns)
-    
-    # Example:
-    # df     =  pd.DataFrame({'a':[1,2,3],'b':[4,5,6],'c':[4,5,6],'d':[1,2,3],'e':[4,5,6],'f':[7,8,9]})
-    # repeated_columns_detector(df)    
+    # Output:            list of lists where each small list contains duplicate coulmns 
+    #                    (Won't include any column which doesn't repeat with other columns) 
     
     repeated_columns = []
     for column1 in df.columns:
@@ -35,5 +31,4 @@ def repeated_columns(df, show_result = True):
                         flag = 1
                 if flag == 0:
                     repeated_columns.append([column1, column2])
-    print(repeated_columns)
-    return df
+    return repeated_columns
