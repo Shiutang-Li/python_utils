@@ -3,19 +3,24 @@
 
 # description     : enhanced value_counts(), including cumulated sum and percentage in the output dataframe
 # author          : Shiu-Tang Li
-# last update     : 05/01/2018
+# last update     : 05/22/2018
 
-def column_stats(df, column, order='asc', precision=3):
+import pandas as pd
+import numpy as np
+
+def var_dist(value_list, var_name, order='asc', precision=3):
    
-   num_records = df.shape[0]
-   table = pd.DataFrame(df[column].value_counts())
-   table.columns = ['cnt']
-   table['value'] = table.index
+   if isinstance(value_list, pd.Series) == False:
+      value_list = pd.Series(value_list)
+
+   num_records = len(value_list)
+   stats = value_list.value_counts()
+   table = pd.DataFrame({var_name: stats.index, 'cnt':stats.values})
    
    if order == 'asc':
-       table.sort_values(by = 'value', inplace = True)
+       table.sort_values(by = var_name, inplace = True)
    elif order == 'desc':
-       table.sort_values(by = 'value', ascending = False, inplace = True)
+       table.sort_values(by = var_name, ascending = False, inplace = True)
    else:
        print('argument error for "order"')
        return None
@@ -27,5 +32,5 @@ def column_stats(df, column, order='asc', precision=3):
        lambda x: round(x['cum_cnt']*100.0 / num_records, precision), axis=1)
    table.reset_index(inplace = True)
    
-   return table[['value', 'cnt',  'cum_cnt', 'percentage', 'cum_percentage']]
+   return table 
    
