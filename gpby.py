@@ -36,7 +36,8 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     elif aggr_func == 'list':
         table  = df[[gp_feature, aggr_feature]].drop_duplicates().groupby(gp_feature)[aggr_feature].apply(list) 
     else:
-        return 'aggr function not available'        
+        print('aggr function not available') 
+        return None    
         
     table  = pd.DataFrame(table)
     table[gp_feature] = table.index
