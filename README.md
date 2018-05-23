@@ -7,6 +7,7 @@ A collection of python tools for
 
 ### Installation with git
 
+in commandline, move to the folder where you want to use this package, and then execute
 ```
 $ git clone https://github.com/Shiutang-Li/python_utils.git
 ```
