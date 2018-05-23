@@ -35,7 +35,7 @@ def val_cnt(value_list, details = True, var_name='value', order='asc', precision
        print('Argument error for "order". "desc" will be used.')
        table.sort_values(by = var_name, ascending = False, inplace = True)
       
-   if details = False:
+   if details == False:
       return table
    
    table['cum_cnt'] = table['cnt'].cumsum()
@@ -87,7 +87,7 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
    table[var_name + ': x'] = table.apply(lambda x: position_to_range_val_cnt(int(x['group_ID']), range_list), axis = 1)
    del table['groupID']
    
-   if details = False:
+   if details == False:
       return table
    
    table['cum_cnt'] = table['cnt'].cumsum()
