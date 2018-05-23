@@ -21,5 +21,7 @@ Input:
 Example:    
 
 df =   
-![](imgs/structure-1.png)   
-
+![](imgs/gpby-1.png)   
+![](imgs/gpby-2.png)  
+![](imgs/gpby-3.png)  
+![](imgs/gpby-4.png)  
