@@ -8,7 +8,7 @@
   
 2. gpby / gpby_range:  
 
-   gpby - Customized easy to use group by function for pandas dataframe.   
+   gpby - Customized easy-to-use group by function for pandas dataframe.   
 
    gpby_range - group by function with user defined group range  
 
