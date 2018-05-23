@@ -56,23 +56,23 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
         return table
 
     
-def position_to_range(i, value_list):
+def position_to_range(i, range_list):
     if i == 0:
-        return 'x < ' + str(value_list[i])
-    elif i > 0 and i < len(value_list):
-        return str(value_list[i-1]) + ' ≤ x < ' + str(value_list[i])
+        return 'x < ' + str(range_list[i])
+    elif i > 0 and i < len(range_list):
+        return str(range_list[i-1]) + ' ≤ x < ' + str(range_list[i])
     else:
         return 'others'
 
     
-def gpby_range(df, gp_feature, aggr_feature, aggr_func, value_list):
+def gpby_range(df, gp_feature, aggr_feature, aggr_func, range_list):
     
     # Input:
     # df:                target dataframe
     # gp_feature:        group by this feature
     # aggr_feature:      another feature for aggregation
     # aggr_func:         aggregation function: 'unique_count', 'count', 'mean', 'max', 'min', 'sum', 'list'
-    # value_list:        the range of each group is based on value_list. Will be sorted in ascending order.
+    # range_list:        the range of each group is based on range_list. Will be sorted in ascending order.
     
     # Output:            resulting dataframe
     
