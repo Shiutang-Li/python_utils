@@ -74,8 +74,10 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
 
    num_records = len(value_list)
    stats = value_list.value_counts()
-   table = pd.DataFrame({var_name + ' :x': stats.index, 'cnt':stats.values})
-   table['group_ID'] = table.apply(lambda x: bisect_right(range_list, x[var_name + ' :x']), axis = 1)
+   table = pd.DataFrame({'value': stats.index, 'cnt':stats.values})
+   table['group_ID'] = table.apply(lambda x: bisect_right(range_list, x['value']), axis = 1)
+   table = pd.DataFrame(table[['group_ID', 'cnt']].groupby('group_ID').aggregate(np.sum)['cnt']) 
+   table = pd.DataFrame({'group_ID':table.index, 'cnt':[item[0] for item in table.values] })
    
    if order == 'asc':
        table.sort_values(by = 'group_ID', inplace = True)
@@ -84,11 +86,12 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
    else:
        print('Argument error for "order". "desc" will be used.')
        table.sort_values(by = 'group_ID', ascending = False, inplace = True)
+      
    table[var_name + ': x'] = table.apply(lambda x: position_to_range_val_cnt(int(x['group_ID']), range_list), axis = 1)
    table.reset_index(inplace = True)
    
    if details == False:
-      table[[var_name + ': x', 'cnt']]
+       return table[[var_name + ': x', 'cnt']]
    
    table['cum_cnt'] = table['cnt'].cumsum()
    table['percentage'] = table.apply(
