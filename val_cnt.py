@@ -36,7 +36,7 @@ def val_cnt(value_list, details = True, var_name='value', order='asc', precision
        table.sort_values(by = var_name, ascending = False, inplace = True)
       
    if details == False:
-      return table
+      return table[[var_name, 'cnt']]
    
    table['cum_cnt'] = table['cnt'].cumsum()
    table['percentage'] = table.apply(
@@ -45,7 +45,7 @@ def val_cnt(value_list, details = True, var_name='value', order='asc', precision
        lambda x: round(x['cum_cnt']*100.0 / num_records, precision), axis=1)
    table.reset_index(inplace = True)
    
-   return table 
+   return table[[var_name, 'cnt', 'cum_cnt', 'percentage', 'cum_percentage']]
    
 def position_to_range_val_cnt(i, range_list):
     if i == 0:
@@ -85,10 +85,9 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
        table.sort_values(by = 'group_ID', ascending = False, inplace = True)
    
    table[var_name + ': x'] = table.apply(lambda x: position_to_range_val_cnt(int(x['group_ID']), range_list), axis = 1)
-   del table['groupID']
    
    if details == False:
-      return table
+      table[[var_name + ': x', 'cnt']]
    
    table['cum_cnt'] = table['cnt'].cumsum()
    table['percentage'] = table.apply(
@@ -97,4 +96,4 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
        lambda x: round(x['cum_cnt']*100.0 / num_records, precision), axis=1)
    table.reset_index(inplace = True)
    
-   return table 
+   return table[[var_name, 'cnt', 'cum_cnt', 'percentage', 'cum_percentage']] 
