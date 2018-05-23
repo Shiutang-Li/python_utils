@@ -3,7 +3,7 @@
 
 # description     : Output a list of lists where each small list contains coulmns of the same value 
 # author          : Shiu-Tang Li
-# last update     : 07/09/2017
+# last update     : 5/22/2018
 # python_version  : 3.5.2
 
 import pandas as pd
