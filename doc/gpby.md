@@ -11,12 +11,12 @@ Input:
         False:  return the 'new group by table' only  
 
 ```python
-gpby_range(df, gp_feature, aggr_feature, aggr_func, value_list)
+gpby_range(df, gp_feature, aggr_feature, aggr_func, range_list)
 ```
 
 Input:
 * df, gp_feature, aggr_feature, aggr_func: same from above. 
-* value_list: the list where the range of each group is based on. Will be sorted in ascending order.
+* range_list: the list where the range of each group is based on. Will be sorted in ascending order.
 
 Example:    
 
