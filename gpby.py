@@ -17,20 +17,14 @@ def gpby(df, gp_feature, aggr_feature, aggr_func, join = True):
     # df:                target dataframe
     # gp_feature:        group by this feature
     # aggr_feature:      another feature for aggregation
-    # aggr_func:         aggregation function: 'unique_count', 'count', 'mean', 'max', 'min', 'sum', 'list'
+    # aggr_func:         aggregation function: 'unique_count', 'mean', 'max', 'min', 'sum', 'list'
     # join:              True:   join the 'aggregation table' to original table
     #                    False:  return the 'aggregation table' only
     
     # Output:            resulting dataframe
     
-    # Example:
-    # df     =  pd.DataFrame({'a':[1,1,2,2,3,3], 'b': [4,5,6,7,8,9]})
-    # new_df =  gpby(df, 'a', 'b', 'mean')  
-    
     if aggr_func == 'mean':
         table  = df[[gp_feature, aggr_feature]].groupby(gp_feature).aggregate(np.mean)[aggr_feature]
-    elif aggr_func == 'count':
-        table  = df[[gp_feature, aggr_feature]].groupby(gp_feature).aggregate('count')[aggr_feature]
     elif aggr_func == 'unique_count':
         table  = df[[gp_feature, aggr_feature]].drop_duplicates().groupby(gp_feature).aggregate('count')[aggr_feature]
     elif aggr_func == 'max':
@@ -80,6 +74,10 @@ def gpby_range(df, gp_feature, aggr_feature, aggr_func, value_list):
     # value_list:        the range of each group is based on value_list. Will be sorted in ascending order.
     
     # Output:            resulting dataframe
+    
+    if aggr_func not in ['unique_count', 'mean', 'max', 'min', 'sum', 'list']:
+        print('aggr function not available')
+        return None
     
     value_list.sort()
     df2 = deepcopy(df)
