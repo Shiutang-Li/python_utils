@@ -96,4 +96,4 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
    table['cum_percentage'] = table.apply(
        lambda x: round(x['cum_cnt']*100.0 / num_records, precision), axis=1)
    
-   return table[[var_name, 'cnt', 'cum_cnt', 'percentage', 'cum_percentage']] 
+   return table[[var_name + ': x', 'cnt', 'cum_cnt', 'percentage', 'cum_percentage']] 
