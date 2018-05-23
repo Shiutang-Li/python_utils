@@ -12,7 +12,7 @@ in command line, move to the folder where you want to use this package, and then
 $ git clone https://github.com/Shiutang-Li/python_utils.git
 ```
 
-### API
+### Documentation
 
 [link](https://github.com/Shiutang-Li/python_utils/blob/master/doc/api_index.md)
 
