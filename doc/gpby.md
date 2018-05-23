@@ -25,5 +25,9 @@ df =
 
 Peforming 'mean' aggregation. Missing values will be ignored except when aggr function = 'list'. 
 ![](imgs/gpby-2.png)  
+
+if join = True, then the resulting dataframe will be joined back to the original dataframe. 
 ![](imgs/gpby-3.png)  
+
+by setting up value list, groups are split based on it. Missing values and Values outside of the range specified by value list will go to 'others' group.
 ![](imgs/gpby-4.png)  
