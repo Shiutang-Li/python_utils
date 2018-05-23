@@ -88,6 +88,7 @@ def val_cnt_range(value_list, range_list, details = True, var_name='value', orde
        table.sort_values(by = 'group_ID', ascending = False, inplace = True)
       
    table[var_name + ': x'] = table.apply(lambda x: position_to_range_val_cnt(int(x['group_ID']), range_list), axis = 1)
+   table.append(pd.DataFrame({var_name + ': x':['Missing'], 'cnt': [value_list.isnull().sum()]})
    table.reset_index(inplace = True)
    
    if details == False:
