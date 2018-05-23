@@ -3,12 +3,22 @@
 
 # description     : enhanced value_counts(), including cumulated sum and percentage in the output dataframe
 # author          : Shiu-Tang Li
-# last update     : 05/22/2018
+# last update     : 5/22/2018
 
 import pandas as pd
 import numpy as np
 
-def var_dist(value_list, var_name, order='asc', precision=3):
+def val_cnt(value_list, details = True, var_name='value', order='asc', precision=3):
+   
+    # Input:
+    # value_list:        The target list / np.array / pandas series that we would like to see distribution. 
+    #                    If the input type is not pd.Series, type transfermation will be performed.  
+    # details:           If False, then only the 'count' stats is displayed  
+    # var_name:          User defined variable name
+    # order:             Whether we'd like to see the stats in asc or desc order 
+    # precision:         Number of digits to be displayed when calculating for percentages
+    
+    # Output:            distribution stats dataframe
    
    if isinstance(value_list, pd.Series) == False:
       value_list = pd.Series(value_list)
@@ -17,13 +27,16 @@ def var_dist(value_list, var_name, order='asc', precision=3):
    stats = value_list.value_counts()
    table = pd.DataFrame({var_name: stats.index, 'cnt':stats.values})
    
+   if details = False:
+      return table
+   
    if order == 'asc':
        table.sort_values(by = var_name, inplace = True)
    elif order == 'desc':
        table.sort_values(by = var_name, ascending = False, inplace = True)
    else:
        print('argument error for "order"')
-       return None
+       return table
    
    table['cum_cnt'] = table['cnt'].cumsum()
    table['percentage'] = table.apply(
