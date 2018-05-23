@@ -7,6 +7,7 @@
 
 import pandas as pd
 import numpy as np
+from bisect import bisect_right
 
 def val_cnt(value_list, details = True, var_name='value', order='asc', precision=3):
    
