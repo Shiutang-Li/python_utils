@@ -5,7 +5,7 @@
 # author          : Shiu-Tang Li
 # last update     : 05/01/2018
 
-def value_stats(df, column, order='asc', precision=3):
+def column_stats(df, column, order='asc', precision=3):
    
    num_records = df.shape[0]
    table = pd.DataFrame(df[column].value_counts())
