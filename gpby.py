@@ -80,10 +80,10 @@ def gpby_range(df, gp_feature, aggr_feature, aggr_func, range_list):
         print('aggr function not available')
         return None
     
-    value_list.sort()
+    range_list.sort()
     df2 = deepcopy(df)
-    df2['group_ID'] = df2.apply(lambda x: bisect_right(value_list, x[gp_feature]), axis = 1)
+    df2['group_ID'] = df2.apply(lambda x: bisect_right(range_list, x[gp_feature]), axis = 1)
     table = gpby(df2, 'group_ID', aggr_feature, aggr_func, join = False).sort_values(by = 'group_ID')
-    table[gp_feature + ': x'] = table.apply(lambda x: position_to_range(int(x['group_ID']), value_list), axis = 1)
+    table[gp_feature + ': x'] = table.apply(lambda x: position_to_range(int(x['group_ID']), range_list), axis = 1)
     
     return table[[gp_feature + ': x', aggr_func +': '+ aggr_feature]]
