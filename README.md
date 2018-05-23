@@ -19,5 +19,5 @@ $ git clone https://github.com/Shiutang-Li/python_utils.git
 
 ```python
 import python_utils as pu
-pu.METHOD_NAME(arg1, arg2)
+pu.FUNCTION_NAME(arg1, arg2, ...)
 ```
