@@ -18,8 +18,11 @@ val_cnt_range(value_list, range_list, details = True, var_name='value', order='a
 ```
 
 Input:
-* df, gp_feature, aggr_feature, aggr_func: same from above. 
-* range_list: the list where the range of each group is based on. Will be sorted in ascending order.
+* range_list:  The list where the range of each group is based on. Will be sorted in ascending order.  
+* All other variables are the same from above.  
+
+Output: 
+* Same from above. 
 
 Example:    
 
