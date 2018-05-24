@@ -36,7 +36,7 @@ def val_cnt(value_list, details = True, var_name='value', order='asc', precision
        print('Argument error for "order". "desc" will be used.')
        table.sort_values(by = var_name, ascending = False, inplace = True)
    table = table.append(pd.DataFrame(
-      {var_name + ': x':['missing value'], 'cnt': [value_list.isnull().sum()], 'group_ID': [-1]}))
+      {var_name :['missing value'], 'cnt': [value_list.isnull().sum()], 'group_ID': [-1]}))
    table.reset_index(inplace = True)
    
    if details == False:
