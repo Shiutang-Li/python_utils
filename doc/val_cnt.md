@@ -3,7 +3,7 @@ val_cnt(value_list, details = True, var_name='value', order='asc', precision=3)
 ```
 
 Input:  
-* value_list: The target list / np.array / pandas series that we would like to see distribution.   
+* value_list: The target list / np.array / pandas series which we would like to see distribution.   
     If the input type is not pd.Series, type transformation will be performed.  
 * details:    If False, then only the 'count' stats is displayed  
 * var_name:   User defined variable name
