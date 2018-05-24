@@ -54,7 +54,7 @@ def position_to_range_val_cnt(i, range_list):
     elif i > 0 and i < len(range_list):
         return str(range_list[i-1]) + ' ≤ x < ' + str(range_list[i])
     else:
-        return 'others'
+        return 'x ≥ ' + str(range_list[-1])
    
 def val_cnt_range(value_list, range_list, details = True, var_name='value', order='asc', precision=3):
    
